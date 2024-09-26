@@ -1,41 +1,22 @@
-﻿using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using source.MedicalRecordAutomation.Base;
 
 namespace source.MedicalRecordAutomation
 {
-    public class LoginUITest
+    /// <summary>
+    /// Login UI Test Cases
+    /// </summary>
+    public class LoginUITest : AutomationWrapper
     {
-        IWebDriver driver;
-
-        //[SetUp]
-        //public void BeforeTestMethod()
-        //{
-        //    driver = new ChromeDriver();
-        //    driver.Manage().Window.Maximize();
-        //    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-
-        //    driver.Navigate().GoToUrl("https://demo.openemr.io/b/openemr");
-        //}
-
-        //[TearDown]
-
-        //public void AfterTestMethod()
-        //{
-        //    driver.Dispose();
-        //}
-
-
         [Test]
-public void TitleTest()
+        public void TitleTest()
         {
-            
-
             string actualTitle = driver.Title;
             Assert.That(actualTitle, Is.EqualTo("OpenEMR Login"));
         }
@@ -43,19 +24,9 @@ public void TitleTest()
         [Test]
         public void ApplicationDescriptionTest()
         {
-            //IWebDriver driver = new ChromeDriver();
-            //driver.Manage().Window.Maximize();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-
-            //driver.Navigate().GoToUrl("https://demo.openemr.io/b/openemr");
-
             //Assert the text --> "The most popular open-source Electronic Health Record and Medical Practice Management solution."
-            string actualDescription=driver.FindElement(By.XPath("//p[contains,text(),'most']")).Text;
+            string actualDescription = driver.FindElement(By.XPath("//p[contains(text(),'most')]")).Text;
             Assert.That(actualDescription, Is.EqualTo("The most popular open-source Electronic Health Record and Medical Practice Management solution."));
-
-
-
         }
-        
     }
 }

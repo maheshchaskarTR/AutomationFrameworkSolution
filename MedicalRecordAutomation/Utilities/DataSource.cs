@@ -6,30 +6,36 @@ using System.Threading.Tasks;
 
 namespace source.MedicalRecordAutomation.Utilities
 {
+
+    //class dedicated to keep all the test data required for the test methods
     public class DataSource
     {
         /// <summary>
         /// Testdata for ValidLoginTest
         /// </summary>
-        /// <returns></returns>
+        /// <returns>object[]</returns>
         public static object[] ValidLoginData()
         {
-            //testcase1
-            //siza- no. of argument
-            string[] dataset1 = new string[3];
-            dataset1[0] = "admin";
-            dataset1[1] = "pass";
-            dataset1[2] = "OpenEMR";
+            string[] dataSet1 = new string[3];
+            dataSet1[0] = "admin";
+            dataSet1[1] = "pass";
+            dataSet1[2] = "OpenEMR";
 
-            string[] dataset2 = new string[3];
-            dataset2[0] = "accountant";
-            dataset2[1] = "accountant";
-            dataset2[3] = "OpenEMR";
+            string[] dataSet2 = new string[3];
+            dataSet2[0] = "accountant";
+            dataSet2[1] = "accountant";
+            dataSet2[2] = "OpenEMR";
 
             object[] finalData = new object[2];
-            finalData[0] = dataset1;
-            finalData[1] = dataset2;
+            finalData[0] = dataSet1;
+            finalData[1] = dataSet2;
+            return finalData;
+        }
 
+        public static object[] ValidLoginDataExcel()
+        {
+            object[] finalData = ExcelSource.GetSheetIntoObjectArray
+                (@"C:\Users\6124711\source\repos\AutomationFrameworkSolution\MedicalRecordAutomation\TestData\openemr_data.xlsx", "ValidLoginTest");
             return finalData;
         }
     }
