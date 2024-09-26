@@ -38,5 +38,12 @@ namespace source.MedicalRecordAutomation.Utilities
                 (@"C:\Users\6124711\source\repos\AutomationFrameworkSolution\MedicalRecordAutomation\TestData\openemr_data.xlsx", "ValidLoginTest");
             return finalData;
         }
+
+        public static object[] InValidLoginDataExcel()
+        {
+            object[] finalData = ExcelSource.GetSheetIntoObjectArray
+                (@"C:\Users\6124711\source\repos\AutomationFrameworkSolution\MedicalRecordAutomation\TestData\openemr_data.xlsx", "InvalidLoginTest");
+            return finalData;
+        }
     }
 }

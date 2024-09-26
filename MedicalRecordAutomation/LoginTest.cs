@@ -25,7 +25,9 @@ namespace source.MedicalRecordAutomation
         }
 
         [Test]
-        [TestCase("saul", "saul234", "Invalid username or password")]
+        [TestCaseSource(typeof(DataSource), nameof(DataSource.InValidLoginDataExcel))]
+
+        //[TestCase("saul", "saul234", "Invalid username or password")]
         public void InvalidLoginTest(string username, string password, string expectedError)
         {
             driver.FindElement(By.Id("authUser")).SendKeys(username);
